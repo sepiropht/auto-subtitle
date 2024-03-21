@@ -1,7 +1,7 @@
 {
   "name": "auto-subtitle",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automatic subtitle of your video",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -131,7 +131,7 @@ function parseArgs() {
 
   parser.addArgument('--model', {
     defaultValue: 'small',
-    choices: ['base.en', 'base', 'large-v1'],
+    choices: [`tiny`, `tiny.en`, `base`, `base.en`, `small`, `small.en`, `medium`, `medium.en`, `large-v1`],
     help: 'name of the Whisper model to use',
   })
 
