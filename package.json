@@ -1,12 +1,15 @@
 {
   "author": "sepiropht",
   "name": "auto-subtitle",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "Automatic subtitle of your video",
   "repository": "https://github.com/sepiropht/auto-subtitle",
   "main": "index.mjs",
+  "bin": {
+    "auto-subtitle": "./index.mjs"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cli": "node index.mjs"
   },
   "license": "MIT",
   "dependencies": {

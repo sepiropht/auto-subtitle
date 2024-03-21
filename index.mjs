@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from 'fs'
 import tmp from 'tmp-promise'
 import { whisper } from 'whisper-node'
@@ -268,7 +270,6 @@ function parseArgs() {
       'yo',
       'zh',
     ],
-    help: 'What is the origin language of the video? If unset, it is detected automatically.',
   })
 
   return parser.parseArgs()
