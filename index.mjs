@@ -7,17 +7,44 @@ import ffmpeg from 'fluent-ffmpeg'
 import { ArgumentParser } from 'argparse'
 import { exec } from 'child_process'
 
+async function downloadWhisperModel(model = 'small') {
+
+  return new Promise((resolve) => {
+    const command = `npx whisper-node download ${model}`
+
+    console.log('Executing command:', command)
+
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`)
+        return
+      }
+      if (stderr) {
+        console.error(`stderr: ${stderr}`)
+        return
+      }
+      console.log(`stdout result de pwd: ${stdout}`)
+      resolve()
+    })
+  })
+}
+
 main()
 
 async function main() {
+
   const args = parseArgs()
+
+  await downloadWhisperModel(args.model)
+
   const audioPaths = await getAudio(args.video)
   const options = {
     modelName: args.model, // default
     whisperOptions: {
-      language: args.language, // default (use 'auto' for auto detect)
+      language: args.language || 'auto', // default (use 'auto' for auto detect)
     },
   }
+
 
   const subtitles = await getSubtitles(
     audioPaths,
